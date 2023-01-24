@@ -54,21 +54,85 @@ require 'pry'
 # s contains only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M').
 # It is guaranteed that s is a valid roman numeral in the range [1, 3999].
 
-  def self.roman_to_int(s)
-    valid_chars = {"I" => 1, "V" => 5, "X" => 10, "L" => 50, "C" => 100, "D" => 500, "M" => 1000}
-    characters = s.split("")
-    total = 0
+  # def self.roman_to_int(s)
+  #   valid_chars = {"I" => 1, "V" => 5, "X" => 10, "L" => 50, "C" => 100, "D" => 500, "M" => 1000}
+  #   characters = s.split("")
+  #   total = 0
+  #   counter = 0
 
-    characters.each do |chr|
-      if valid_chars.include?(chr)
-        total += valid_chars[chr]
-      else
-        return "Invalid Character"
-      end
+  #   characters.each do |chr|
+  #     if valid_chars.include?(chr)
+  #       new_char_value = valid_chars[chr]
+  #       last_char_value = valid_chars[characters[counter - 1]]
+  #       if last_char_value < new_char_value
+
+  #       binding.pry
+  #       total += valid_chars[chr]
+  #       counter += 1
+  #     else
+  #       return "Invalid Character"
+  #     end
+  #   end
+  #   total
+  # end
+
+
+  def roman_to_int(s)
+    valid_chars = {"I" => 1, "V" => 5, "X" => 10, "L" => 50, "C" => 100, "D" => 500, "M" => 1000}
+
+    string = s.split("")    
+    num_values = []
+    string.each do |char|
+        num_values << roman_nums[char]
+    end
+
+    total = 0
+    num_values.each_with_index do |num, index|
+        if num_values[index + 1] && num >= num_values[index + 1]
+            total += num 
+        else
+            total -= num 
+        end
     end
     total
   end
 
-pp roman_to_int("III") == 3
-pp roman_to_int("LVIII") == 58
-pp roman_to_int("MCMXCIV") == 1994
+# pp roman_to_int("III") == 3
+# pp roman_to_int("LVIII") == 58
+# pp roman_to_int("MCMXCIV") == 1994
+pp roman_to_int("MCMXCIV")
+
+# def roman_to_int(s)
+#   special_matches = s.scan(/IV|IX|XL|XC|CD|CM/)
+#   if special_matches
+#     special_sum = special_matches.map { |m| special_numerals[m]}.sum
+#     special_matches.each { |m| s.gsub!(m, '') }
+#   end
+#   normal_sum = s.each_char.map { |c| numerals[c] }.sum  
+#   return (special_sum + normal_sum) if special_sum
+  
+#   normal_sum
+# end
+
+# def numerals
+#   {
+#     'I' => 1,
+#     'V' => 5,
+#     'X' => 10,
+#     'L' => 50,
+#     'C' => 100,
+#     'D' => 500,
+#     'M' => 1000
+#   }
+# end
+
+# def special_numerals
+#   {
+#     'IV' => 4,
+#     'IX' => 9,
+#     'XL' => 40,
+#     'XC' => 90,
+#     'CD' => 400,
+#     'CM' => 900
+#   }
+# end
