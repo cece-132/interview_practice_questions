@@ -54,6 +54,21 @@ require 'pry'
 # s contains only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M').
 # It is guaranteed that s is a valid roman numeral in the range [1, 3999].
 
-def roman_to_int(s)
-  
-end
+  def self.roman_to_int(s)
+    valid_chars = {"I" => 1, "V" => 5, "X" => 10, "L" => 50, "C" => 100, "D" => 500, "M" => 1000}
+    characters = s.split("")
+    total = 0
+
+    characters.each do |chr|
+      if valid_chars.include?(chr)
+        total += valid_chars[chr]
+      else
+        return "Invalid Character"
+      end
+    end
+    total
+  end
+
+pp roman_to_int("III") == 3
+pp roman_to_int("LVIII") == 58
+pp roman_to_int("MCMXCIV") == 1994
