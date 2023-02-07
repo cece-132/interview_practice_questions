@@ -23,7 +23,12 @@ class LocomotiveEngineer
         stop_info[:stops] = stop.values 
       end
     end
-    stop_info[:stops] = [] if stop_info[:stops].nil?
+    if stop_info[:stops].nil?
+      stop_info[:stops] = []
+      return stop_info
+    else
+      return stop_info
+    end
   end
 
   def self.extend_route_information(route, more_route_information)
