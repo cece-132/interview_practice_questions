@@ -2,11 +2,17 @@ require 'pry'
 
 class LocomotiveEngineer
   def self.generate_list_of_wagons(*args)
-binding.pry
+    args
   end
 
   def self.fix_list_of_wagons(each_wagons_id, missing_wagons)
-    raise 'Please implement the LocomotiveEngineer.fix_list_of_wagons method'
+    wagons = []
+    # take the 1 and put into new array
+    # take the missing wagons an put into new array
+    # add the rest of the wagons behind the missing wagons
+    
+    (each_wagons_id << missing_wagons).flatten.sort.uniq
+    binding.pry
   end
 
   def self.add_missing_stops
@@ -19,3 +25,4 @@ binding.pry
 end
 
 p LocomotiveEngineer.generate_list_of_wagons(1, 7, 12, 3, 14, 8, 5)
+p LocomotiveEngineer.fix_list_of_wagons([2, 5, 1, 7, 4, 12, 6, 3, 13], [3, 17, 6, 15])
