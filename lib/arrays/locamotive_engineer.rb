@@ -32,7 +32,14 @@ class LocomotiveEngineer
   end
 
   def self.extend_route_information(route, more_route_information)
-    raise 'Please implement the LocomotiveEngineer.extend_route_information method'
+    route_info = {}
+    route.each do |k,v|
+      route_info[k] = v
+    end
+    more_route_information.each do |k,v|
+      route_info[k] = v
+    end
+    route_info
   end
 end
 
@@ -45,3 +52,8 @@ p LocomotiveEngineer.fix_list_of_wagons([2, 5, 1, 7, 4, 12, 6, 3, 13], [3, 17, 6
                                         # stop_4: "Jacksonville", 
                                         # stop_5: "Orlando")
 p LocomotiveEngineer.add_missing_stops({ from: 'New York', to: 'Philadelphia' })
+p LocomotiveEngineer.extend_route_information({"from": "Berlin", "to": "Hamburg"}, {"length": "100", "speed": "50"})
+
+# Takeaways
+
+# the extended route information method could use some recursion to create a more efficient method.
