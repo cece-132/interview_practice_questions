@@ -7,12 +7,10 @@ class LocomotiveEngineer
 
   def self.fix_list_of_wagons(each_wagons_id, missing_wagons)
     wagons = []
-    # take the 1 and put into new array
-    # take the missing wagons an put into new array
-    # add the rest of the wagons behind the missing wagons
-    
-    (each_wagons_id << missing_wagons).flatten.sort.uniq
-    binding.pry
+    wagons << each_wagons_id.delete(1)
+    wagons << missing_wagons
+    2.times{each_wagons_id.push(each_wagons_id.shift())}
+    wagons << each_wagons_id
   end
 
   def self.add_missing_stops
