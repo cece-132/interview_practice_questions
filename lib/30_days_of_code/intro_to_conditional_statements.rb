@@ -22,6 +22,21 @@ def weird_or_not(number)
   end
 end
 
+def weird_or_not(number)
+  if number.odd?
+    print 'Weird'
+  else
+    case number.even?
+    when (number >= 2 && number <= 5)
+      print 'Not Weird'
+    when (number >= 6 && number <= 20)
+      print 'Weird'
+    when (number > 20)
+      print 'Not Weird'
+    end
+  end
+end
+
 # def weird_or_not(number)
 #   case number
 #   when number.even? && 2..5 then 
