@@ -8,7 +8,7 @@ RSpec.describe 'Food Lines' do
       lines = [2,2,3,3,3]
       n = 5
       m = 3
-      expect(solve(lines, n, m)).to eq("2\n2\n3")
+      expect{solve(lines, n, m)}.to output("2\n2\n3\n").to_stdout
     end
   end
 
