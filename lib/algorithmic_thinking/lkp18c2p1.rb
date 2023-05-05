@@ -12,7 +12,11 @@ end
 def shortest_line_index(lines, total_lines)
   shortest = 0
   (1..total_lines).each do |line_position|
-    shortest = line_position if lines[line_position] < lines[shortest]
+    binding.pry
+    if lines[line_position] < lines[shortest]
+      binding.pry
+      shortest = line_position 
+    end
   end
   shortest
 end

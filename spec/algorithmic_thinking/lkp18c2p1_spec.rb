@@ -3,11 +3,11 @@ require './lib/algorithmic_thinking/lkp18c2p1'
 
 RSpec.describe 'Food Lines' do
 
-  describe '#solve(lines, num_of_lines, people_to_enter)' do
+  describe '#solve(lines, total_lines, new_people)' do
     it 'returns the lines that each person would enter' do
       lines = [2,2,3,3,3]
-      m = 5
-      n = 3
+      n = 5
+      m = 3
       expect(solve(lines, n, m)).to eq("2\n2\n3")
     end
   end
