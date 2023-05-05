@@ -4,6 +4,8 @@ require 'pry'
 def solve(lines, total_lines, new_people)
   raise 'Input has too many lines' if total_lines > 100
   raise 'Input has too new people' if new_people > 100
+  raise 'Line has value that is greater than 100' if lines.include?(101)
+
   new_people.times do
     shortest = shortest_line_index(lines, total_lines)
     puts lines[shortest]

@@ -18,7 +18,19 @@ RSpec.describe 'Food Lines' do
       expect{solve(lines, total_lines, new_people)}.to raise_error(RuntimeError)
     end
 
-    
+    it 'raises an error if the new people is > 100' do
+      lines = [2,2,3,3,3]
+      total_lines = 5
+      new_people = 101
+      expect{solve(lines, total_lines, new_people)}.to raise_error(RuntimeError)
+    end
+
+    it 'raises an error if the line has a value greater than 100 people' do
+      lines = [2,2,3,101,3]
+      total_lines = 5
+      new_people = 101
+      expect{solve(lines, total_lines, new_people)}.to raise_error(RuntimeError)
+    end
   end
 
   describe '#shortest_line(lines, ppl_to_enter)' do
