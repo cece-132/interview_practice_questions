@@ -14,7 +14,7 @@ RSpec.describe 'Food Lines' do
 
   describe '#shortest_line(lines, ppl_to_enter)' do
     it 'returns the line each person goes into' do
-      lines = [2,2,3,3,3]
+      lines = [3,3,4,4,4]
       n = 3
       expect(shortest_line_index(lines, n)).to eq(0)
     end
