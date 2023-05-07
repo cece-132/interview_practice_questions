@@ -2,16 +2,20 @@
 
 def compare(snowflake_count, snowflakes)
   snowflake_objects = snowflakes.map { |snowflake| SnowFlake.new(snowflake) }
+
 end
+
+def comparision()
+  
+end
+
 
 
 class SnowFlake
   attr_reader :arms
 
   def initialize(arm_data)
-    @arms = arm_data.split(" ").map do |int| 
-              checks(int.to_i)
-            end
+    @arms = arm_data.split(" ").map { |int| checks(int.to_i) }
   end
 
   def checks(int)
