@@ -10,9 +10,19 @@ class SnowFlake
   attr_reader :arms
 
   def initialize(arm_data)
-    @arms = arm_data.split(" ").map { |int| int.to_i }
-    raise 'Arm value cant be less than zero' if @arms.include?('-')
-    raise 'Arm value cant be greater than 10_000_000' if @arms.include?('10000000')
+    @arms = arm_data.split(" ").map do |int| 
+              checks(int.to_i)
+            end
+  end
+
+  def checks(int)
+    if int.negative?
+      raise 'Arm value cant be less than zero' 
+    elsif int > 10000000
+      raise 'Arm value cant be greater than 10_000_000'
+    else
+      int.to_i
+    end
   end
   
 end
