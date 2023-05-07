@@ -2,7 +2,6 @@
 
 def compare(snowflake_count, snowflakes)
   snowflake_objects = snowflakes.map { |snowflake| SnowFlake.new(snowflake) }
-
 end
 
 
