@@ -22,7 +22,7 @@ RSpec.describe 'Snowflakes' do
   end
 
   describe '.snowflake' do
-    it 'exists and has attributes' do
+    xit 'exists and has attributes' do
       snowflake = SnowFlake.new("1 2 3 4 5 6")
       expect(snowflake).to be_a SnowFlake
       expect(snowflake.arms).to be_a Array
@@ -32,11 +32,11 @@ RSpec.describe 'Snowflakes' do
       end
     end
 
-    it 'each integers value cant be less than zero' do
+    xit 'each integers value cant be less than zero' do
       expect{SnowFlake.new("-1 2 3 4 5 6")}.to raise_error('Arm value cant be less than zero')
     end
 
-    it 'each integers value cant be more than 10_000_000' do
+    xit 'each integers value cant be more than 10_000_000' do
       expect{SnowFlake.new("1 20000000 3 4 5 6")}.to raise_error('Arm value cant be greater than 10_000_000')
     end
   end

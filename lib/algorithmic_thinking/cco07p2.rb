@@ -1,12 +1,13 @@
 # visit https://dmoj.ca/problem/cco07p2 to view the problem
 
 def compare(snowflake_count, snowflakes)
-  snowflake_objects = snowflakes.map { |snowflake| SnowFlake.new(snowflake) }
-
+  comparision(snowflakes.map { |snowflake| snowflake.split(" ") })
 end
 
-def comparision()
-  
+def comparision(snowflakes)
+  snowflakes.each do |snow|
+    binding.pry
+  end
 end
 
 
