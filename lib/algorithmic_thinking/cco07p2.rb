@@ -5,6 +5,8 @@ def compare(snowflake_count, snowflakes)
 end
 
 def comparision(snowflakes)
+  # until the array[0] is equal on two arrays
+  # then keep rotating
   snowflakes.each do |snow|
     binding.pry
   end
