@@ -66,8 +66,10 @@ end
 
 # THIRD SOLUTION
 
-def remove_duplicates(nums)
-  return 0 if nums.empty?
+# def remove_duplicates(nums)
+#   return 0 if nums.empty?
     
-  nums.uniq!.length
-end
+#   nums.uniq!.length
+# end
+
+# does not pass all the test cases so is inefective
