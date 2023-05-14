@@ -32,34 +32,42 @@ end
 
 # this is a more efficient version of the method
 
+# def remove_duplicates(nums)
+#   return 0 if nums.empty?
+#   # accounts for empty arrays
+    
+#   k = 1
+#   # variable for unique number count
+    
+#   i = 1
+#   # variable checking that we are running code for the length of the array
+
+#   while i < nums.length
+#   # while i is less than the length of the nums array
+      
+#     if nums[i] != nums[k - 1]
+#     # if the num[at index i] is not equal to nums[at index k -1]
+#     # if the num we are looking at is not equal to the previous 
+        
+#       nums[k] = nums[i]
+#       # nums[at index k] equals nums[at index i] this reassigns the value
+        
+#       k += 1
+#       # increase the value of the unique number count
+        
+#     end
+#     i += 1
+#     # increase the value of the variable making sure we check every number in the array
+#   end
+  
+#   k
+#   # returns the unique number count value
+# end
+
+# THIRD SOLUTION
+
 def remove_duplicates(nums)
   return 0 if nums.empty?
-  # accounts for empty arrays
     
-  k = 1
-  # variable for unique number count
-    
-  i = 1
-  # variable checking that we are running code for the length of the array
-
-  while i < nums.length
-  # while i is less than the length of the nums array
-      
-    if nums[i] != nums[k - 1]
-    # if the num[at index i] is not equal to nums[at index k -1]
-    # if the num we are looking at is not equal to the previous 
-        
-      nums[k] = nums[i]
-      # nums[at index k] equals nums[at index i] this reassigns the value
-        
-      k += 1
-      # increase the value of the unique number count
-        
-    end
-    i += 1
-    # increase the value of the variable making sure we check every number in the array
-  end
-  
-  k
-  # returns the unique number count value
+  nums.uniq!.length
 end
