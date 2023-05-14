@@ -30,4 +30,21 @@ def remove_duplicates(nums)
 end
 
 
+# this is a more efficient version of the method
 
+def remove_duplicates(nums)
+  return 0 if nums.empty?
+  
+  k = 1
+  i = 1
+
+  while i < nums.length
+    if nums[i] != nums[k - 1]
+      nums[k] = nums[i]
+      k += 1
+    end
+    i += 1
+  end
+  
+  k
+end
