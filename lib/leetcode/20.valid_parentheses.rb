@@ -112,12 +112,29 @@ require 'pry'
 
 # ITERATION 4
 
+PAIRS = {
+    '(' => ')',
+    '{' => '}',
+    '[' => ']',
+}.freeze
+
 def is_valid(s)
   # needed to predict the obvious edgecase
   return true if s.empty?
 
-  
-  
+  stack = []
+  # needs to utilize a stack to keep track of the characters
+
+  s.chars.each do |char|
+      if PAIRS[char] # if true this is a starting char
+          stack.push(char)
+      else # if false this is an ending char
+          # make sure than the ending char is the complement of the last item in the stack
+          return false unless PAIRS[stack.pop] == char
+      end
+  end
+
+  stack.empty?  
 end
 
 # p is_valid("()")
